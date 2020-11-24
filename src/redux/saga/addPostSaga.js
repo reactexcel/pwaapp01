@@ -6,8 +6,8 @@ import axios from "axios";
 
 export function* addPost(action) {
  const newPosts=JSON.parse(localStorage.getItem('newPost'))||[]
- const posts=[...newPosts,action.payload]
- console.log('saaaaaaaaaaa',action.payload)
+ const posts=[action.payload,...newPosts]
+
   try {
     let response = yield call(
       axios.post,
